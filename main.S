@@ -7,7 +7,7 @@
 
 @ Addresses
 .equ SIO_BASE,         0xd0000000
-.equ GPIO_OUT,         0x10
+.equ GPIO_OUT,         0x10 @ offsets from SIO_BASE
 .equ GPIO_OUT_SET,     0x14
 .equ GPIO_OUT_CLR,     0x18
 .equ GPIO_OUT_XOR,     0x1c
