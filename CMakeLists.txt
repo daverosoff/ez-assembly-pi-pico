@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
+set(PICO_TOOLCHAIN_PATH "/usr/bin")
+set(PICO_GCC_TRIPLE "arm-none-eabi")
 
 # Pull in SDK (everything is already in the environment)
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
