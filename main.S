@@ -15,7 +15,7 @@
 .equ GPIO_OE_SET,      0x24
 .equ GPIO_OE_CLR,      0x28
 .equ GPIO_OE_XOR,      0x2c
-.equ IO_BANK0_GP0_CTRL, 0x40014000
+.equ IO_BANK0_BASE, 0x40014000
 
 main:
     @ Initialize GP0 function
