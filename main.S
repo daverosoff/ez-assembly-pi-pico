@@ -5,9 +5,17 @@
 .global main
 .thumb_func
 
-.equ SIO_BASE,        0xd0000000
-.equ GPIO_OUT_SET,    0x14
-.equ GPIO_OUT_CLR,    0x18
+@ Addresses
+.equ SIO_BASE,         0xd0000000
+.equ GPIO_OUT,         0x10
+.equ GPIO_OUT_SET,     0x14
+.equ GPIO_OUT_CLR,     0x18
+.equ GPIO_OUT_XOR,     0x1c
+.equ GPIO_OE,          0x20
+.equ GPIO_OE_SET,      0x24
+.equ GPIO_OE_CLR,      0x28
+.equ GPIO_OE_XOR,      0x2c
+.equ IO_BANK0_GP0_CTRL, 0x40014000
 
 main:
     @ Initialize GP0 function
