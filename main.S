@@ -22,13 +22,6 @@ main:
     ldr r0, =IO_BANK0_BASE
     movs r1, #5
     str r1, [r0, #0x04] @ GP0
-    str r1, [r0, #0x0c] @ GP1
-    str r1, [r0, #0x14] @ GP2
-    str r1, [r0, #0x1c] @ GP3
-    str r1, [r0, #0x24] @ GP4
-    str r1, [r0, #0x2c] @ GP5
-    str r1, [r0, #0x34] @ GP6
-    str r1, [r0, #0x3c] @ GP7
 
     @ Enable Output on GP0
     ldr r0, =SIO_BASE
