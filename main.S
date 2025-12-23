@@ -29,9 +29,19 @@ main:
     str r1, [r0, #0x2c] @ GP5
     str r1, [r0, #0x34] @ GP6
     str r1, [r0, #0x3c] @ GP7
-    ldr r0, =SIO_BASE
-    movs r1, #5
-    str r1, [r0, #GPIO_OUT_SET]
 
-loop:
-    b loop
+    @ Enable Output on GP0
+    ldr r0, =SIO_BASE
+    movs r1, #0xff
+    str r1, [r0, #GPIO_OE_SET]
+
+blink_loop:
+    str r1, [r0, #GPIO_OUT_XOR]
+
+    @ Delay
+    ldr r2, =5000000
+delay:
+    subs r2, r2, #1
+    bne delay
+
+    b blink_loop
