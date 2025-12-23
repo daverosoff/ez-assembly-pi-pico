@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 # Pull in SDK (everything is already in the environment)
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
-
+set(PICO_PLATFORM rp2040)
 project(assembly_lab C CXX ASM)
 pico_sdk_init()
 
