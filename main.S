@@ -19,7 +19,7 @@
 
 main:
     @ Initialize GP0 function
-    ldr r0, =IO_BANK0_GP0_CTRL
+    ldr r0, =IO_BANK0_BASE
     movs r1, #5
     str r1, [r0, #0x04] @ GP0
     str r1, [r0, #0x0c] @ GP1
