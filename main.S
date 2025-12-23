@@ -32,9 +32,12 @@ blink_loop:
     str r1, [r0, #GPIO_OUT_XOR]
 
     @ Delay
-    ldr r2, =5000000
+    ldr r2, delay_constant
 delay:
     subs r2, r2, #1
     bne delay
 
     b blink_loop
+.align 2
+delay_constant:
+    .word 41666667 @ 41666667 loops per second = 125 MHz
