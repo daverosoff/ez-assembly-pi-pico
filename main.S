@@ -25,7 +25,7 @@ main:
 
     @ Enable Output on GP0
     ldr r0, =SIO_BASE
-    movs r1, #0xff
+    movs r1, #1
     str r1, [r0, #GPIO_OE_SET]
 
 blink_loop:
