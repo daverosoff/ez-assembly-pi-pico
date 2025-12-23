@@ -1,0 +1,21 @@
+{
+    "name": "Pico Assembly Lab",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:1": {}
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential cmake python3 && git clone --depth 1 --branch master https://github.com/raspberrypi/pico-sdk.git /home/vscode/pico-sdk && cd /home/vscode/pico-sdk && git submodule update --init",
+    "containerEnv": {
+        "PICO_SDK_PATH": "/home/vscode/pico-sdk"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "marus25.cortex-debug",
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "dan-c-underwood.arm"
+            ]
+        }
+    }
+}
