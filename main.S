@@ -42,11 +42,11 @@
 @ address pointed to by the value in r0 incremented
 @ by literal hex 10".
 
-.equ SIO_BASE,         0xd0000000
-.equ GPIO_OUT,         0x10 @ offsets from SIO_BASE
-.equ GPIO_OUT_SET,     0x14
-.equ GPIO_OUT_CLR,     0x18
-.equ GPIO_OUT_XOR,     0x1c
+.equ  SIO_BASE,      0xd0000000
+.equ  GPIO_OUT,      0x10 @ offsets from SIO_BASE
+.equ  GPIO_OUT_SET,  0x14
+.equ  GPIO_OUT_CLR,  0x18
+.equ  GPIO_OUT_XOR,  0x1c
 
 @ The words at offsets 0x20, 0x24, 0x28, and 0x2c
 @ function similarly, except that they are used to
@@ -54,12 +54,14 @@
 @ the pin modes for GP0-GP29, and the rest operate
 @ by bitmasks as described above.
 
-.equ GPIO_OE,          0x20
-.equ GPIO_OE_SET,      0x24
-.equ GPIO_OE_CLR,      0x28
-.equ GPIO_OE_XOR,      0x2c
+.equ      GPIO_OE,  0x20
+.equ  GPIO_OE_SET,  0x24
+.equ  GPIO_OE_CLR,  0x28
+.equ  GPIO_OE_XOR,  0x2c
 
-@ The addresses from 0x40014000 through 0x40014
+.equ  IO_BANK0_BASE,  0x40014000
+
+@ The addresses from 0x40014000 through 0x400140df
 @ belong to IO_BANK0. Each of the 30 user GPIO
 @ pins, GP0-GP29, has a STATUS word
 @ and a CTRL word in this bank. They are important
@@ -72,19 +74,32 @@
 
 @ The STATUS and CTRL words are offset from the base
 @ address IO_BANK0_BASE, 0x40014000, as follows:
-@ GPIO0_STATUS ...................... 0x00
-@ GPIO0_CTRL ........................ 0x04
-@ GPIO1_STATUS ...................... 0x08
-@ GPIO1_CTRL ........................ 0x0c
-@ GPIO2_STATUS ...................... 0x10
-@ GPIO2_CTRL ........................ 0x14
-@ GPIO3_STATUS ...................... 0x18
-@ GPIO3_CTRL ........................ 0x1c
-@ ...
-@ GPIO29_STATUS ..................... 0xd8
-@ GPIO29_CTRL ....................... 0xdc
 
-.equ IO_BANK0_BASE,    0x40014000
+@ GPIO0_STATUS ........... 0x00
+@ GPIO0_CTRL ............. 0x04
+@ ...
+@ GPIO29_STATUS .......... 0xd8
+@ GPIO29_CTRL ............ 0xdc
+
+@ We could use the raw values, but let's use named constants
+@ to improve readability.
+
+.equ GPIO0_STATUS,  0x00
+.equ GPIO0_CTRL  ,  0x04
+.equ GPIO1_STATUS,  0x08
+.equ GPIO1_CTRL  ,  0x0c
+.equ GPIO2_STATUS,  0x10
+.equ GPIO2_CTRL  ,  0x14
+.equ GPIO3_STATUS,  0x18
+.equ GPIO3_CTRL  ,  0x1c
+.equ GPIO4_STATUS,  0x20
+.equ GPIO4_CTRL,    0x24
+.equ GPIO5_STATUS,  0x28
+.equ GPIO5_CTRL  ,  0x2c
+.equ GPIO6_STATUS,  0x30
+.equ GPIO6_CTRL  ,  0x34
+.equ GPIO7_STATUS,  0x38
+.equ GPIO7_CTRL  ,  0x3c
 
 main:
     @ Initialize GP0 function
